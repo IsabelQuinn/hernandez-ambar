@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de letras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado con enlace a GitHub -->
+    <!-- <header>
+        <h1>Contador de letras</h1> 
+    </header>-->
+
+    <!-- Sección principal -->
+    <section class="main-section">
+        <div class="form-container">
+            <form id="form">
+                <h2>Contador de Letras</h2>
+                <!-- Entrada de texto -->
+                <div class="input-container">
+                    <label for="word">Cadena de texto</label>
+                    <input id="word" type="text" required>      
+                </div>
+                <!-- Botones de acción -->
+                <div class="buttons">             
+                    <button type="button" id="btn-clear" onclick="limpiar()">Limpiar</button>
+                    <button type="submit" id="btn-count" onclick="contar()">Contar</button> 
+                </div>
+            </form>
+        </div>
+        <!-- Resultado del contador -->
+        <div class="result-container">
+            <p id="respuesta"></p>   
+        </div>
+    </section>
+
+    <script src="contador.js"></script>
+</body>
+</html>
