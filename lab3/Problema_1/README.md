@@ -1,0 +1,1 @@
+# Escribir una función que, dada una cadena "t", retorne si un número es un palíndromo de doble base o no. (Palíndromo en base 10 y base 2)
