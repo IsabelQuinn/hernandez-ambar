@@ -1,0 +1,101 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7e7e7; /* Color de fondo */
+    color: #333; /* Color del texto principal */
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color:  #e2d9d8;   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0,  0, 0.19);
+    border-radius: 10px;
+}
+
+/* Estilos del encabezado */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #dea7a1; /* Color del encabezado */
+}
+
+main {
+    margin-top: 30px;
+}
+
+/* Estilos del formulario */
+.form-container {
+    background-color: #df9a9a; /* Color del formulario */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: calc(100% - 16px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ca746e; /* Color del botón */
+    color: #333; /* Color del texto del botón */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d27b7b; /* Color del botón al pasar el ratón */
+}
+
+/* Estilos del contenedor de resultado */
+.result-container {
+    background-color: #dea7a1; /* Color del contenedor de resultado */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos del pie de página */
+footer {
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer button {
+    padding: 10px 20px;
+    background-color: #ffdcd8; /* Color del botón del pie de página */
+    color: #333; /* Color del texto del botón del pie de página */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+    background-color: #ecdad8; /* Color del botón del pie de página al pasar el ratón */
+}
