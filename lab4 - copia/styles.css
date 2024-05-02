@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:wght@300;400;500&display=swap");
+      .container {
+        font-family: "Montserrat", sans-serif;
+        display: flex;
+        flex-direction: column; /* Cambiar la dirección de flexión a column */
+        align-items: start;
+      }
+      .forml {
+        height: 100%;
+        width: 40%;
+        box-sizing: content-box;
+        box-shadow: 0px 5px 3px 1px rgba(120, 118, 118, 0.806);
+        padding: 20px;
+        background-color: #f0f0f0;
+        
+      }
+
+      .title {
+        margin-top: -20px;
+      }
+      #form label {
+        display: inline-block;
+        margin-bottom: 5px;
+        width: 100%;
+      }
+
+      #form input[type="number"] {
+        font-family: "Montserrat", sans-serif;
+        display: block;
+        width: 35%;
+      }
+      .button {
+        height: 30px;
+        width: 200px;
+      }
+      button[type="submit"] {
+        font-family: "Montserrat", sans-serif;
+        background: #9f0000;
+        padding: 5px;
+        width: 50%;
+        color: white;
+        margin-left: 50%;
+      }
+      #res {
+        margin-top: 30px;
+      }
+      .card {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        box-shadow: 0px 5px 3px 1px rgba(120, 118, 118, 0.806);
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin: 5px;
+        display: inline-block;
+        cursor: pointer;
+      }
