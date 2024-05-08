@@ -1,0 +1,143 @@
+      /* Estilos generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      .add-candidate-container {
+        text-align: center;
+        width: 30%;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-left: 35%;
+      }
+
+      .add-candidate-container h2 {
+        margin-top: 0;
+      }
+
+      .input-container {
+        margin-bottom: 15px;
+      }
+
+      .input-container label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .input-container input {
+        width: 40%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .add-candidate-container button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .add-candidate-container button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Estilos de las tarjetas de candidatos */
+      .candidate-card {
+        width: calc(25% - 20px);
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: top;
+      }
+      .candidate-card:last-child {
+        margin-right: 0;
+      }
+      .candidate-card:hover {
+        transform: translateY(-5px);
+      }
+      .candidate-card .color-block {
+        width: 100%;
+        height: 150px;
+      }
+      .candidate-card img {
+        width: 100%;
+        height: 20%;
+        border-bottom: 1px solid #ccc;
+      }
+      .candidate-card .card-body {
+        padding: 15px;
+      }
+      .candidate-card .name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .candidate-card .color {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .candidate-card .button-container {
+        margin-top: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .candidate-card button {
+        padding: 8px 15px;
+        margin: 0 5px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .candidate-card button:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+      /* Estilos de la gráfica de votación */
+      .chart-bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .chart-bar .bar {
+        height: 20px;
+        background-color: #007bff;
+        transition: width 0.3s ease;
+      }
+      .chart-bar .label {
+        margin-left: 10px;
+      }
+      /* Estilos para dispositivos móviles */
+      @media (max-width: 768px) {
+        .candidate-card {
+          flex-direction: column;
+          text-align: center;
+        }
+        .candidate-card .color {
+          margin-bottom: 10px;
+        }
+      }
