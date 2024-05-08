@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Votación</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="add-candidate-container">
+      <h2>Agregar Candidato</h2>
+      <form id="form">
+        <div class="input-container">
+          <label for="candidateName">Nombre del Candidato:</label>
+          <input
+            type="text"
+            id="candidateName"
+            placeholder="Ingrese el nombre del candidato"
+          />
+        </div>
+        <div class="input-container">
+          <label for="candidateImage">URL de la Imagen:</label>
+          <input
+            type="text"
+            id="candidateImage"
+            placeholder="Ingrese la URL de la imagen (opcional)"
+          />
+        </div>
+        <button type="submit">Agregar Candidato</button>
+      </form>
+    </div>
+
+    <h2>Lista de Candidatos</h2>
+    <div id="candidateList"></div>
+
+    <h2>Resultados de Votación</h2>
+    <div id="chart"></div>
+
+    <script src="Sys.js"></script>
+  </body>
+</html>
