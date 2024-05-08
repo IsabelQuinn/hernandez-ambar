@@ -1,5 +1,5 @@
 const App = {
-    candidates: [], // Define candidates como una propiedad de App
+    candidates: [],
 
     htmlElements: {
       form: document.getElementById("form"),
@@ -8,17 +8,17 @@ const App = {
     },
 
     init() {
-      this.bindEvents(); // Usa this en lugar de App
+      this.bindEvents(); 
     },
 
     bindEvents() {
       this.htmlElements.form.addEventListener(
         "submit",
-        this.handlers.handleSubmit.bind(this) // Usa bind para mantener el ámbito correcto
+        this.handlers.handleSubmit.bind(this) 
       );
       this.htmlElements.candidateList.addEventListener(
         "click",
-        this.handlers.handleCandidateClick.bind(this) // Usa bind para mantener el ámbito correcto
+        this.handlers.handleCandidateClick.bind(this) 
       );
     },
 
@@ -34,16 +34,16 @@ const App = {
           alert("Por favor ingrese un nombre para el candidato.");
           return;
         }
-        const color = this.Methods.getRandomColor(); // Usa this para acceder a Methods
+        const color = this.Methods.getRandomColor(); 
         const candidate = {
           name: candidateName,
           color: color,
           votes: 0,
           image: candidateImage,
         };
-        this.candidates.push(candidate); // Usa this para acceder a candidates
-        this.renderCandidates(); // Usa this para acceder a los métodos de App
-        this.renderChart(); // Usa this para acceder a los métodos de App
+        this.candidates.push(candidate); 
+        this.renderCandidates(); 
+        this.renderChart();
         document.getElementById("candidateName").value = "";
         document.getElementById("candidateImage").value = "";
       },
@@ -52,14 +52,14 @@ const App = {
         const target = event.target;
         if (target.classList.contains("vote-button")) {
           const index = parseInt(target.dataset.index);
-          this.candidates[index].votes++; // Usa this para acceder a candidates
-          this.renderCandidates(); // Usa this para acceder a los métodos de App
-          this.renderChart(); // Usa this para acceder a los métodos de App
+          this.candidates[index].votes++;
+          this.renderCandidates();
+          this.renderChart(); 
         } else if (target.classList.contains("remove-button")) {
           const index = parseInt(target.dataset.index);
-          this.candidates.splice(index, 1); // Usa this para acceder a candidates
-          this.renderCandidates(); // Usa this para acceder a los métodos de App
-          this.renderChart(); // Usa this para acceder a los métodos de App
+          this.candidates.splice(index, 1); 
+          this.renderCandidates(); 
+          this.renderChart(); 
         }
       },
     },
