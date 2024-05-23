@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            
+            <button id="backButton" class="nav-btn bk-btn">Back</button>
+        </div>
+        <div class="navbar-right">
+            <button id="logoutButton" class="nav-btn logout-btn">Logout</button>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Perfil de Usuario</h1>
+        <form id="profileForm">
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input type="text" id="profileName" name="name" placeholder="Nombre" required>
+            </div>
+            <div class="input-container">
+                <i class="fa fa-lock icon"></i>
+                <input type="password" id="profilePassword" name="password" placeholder="Nueva Contraseña">
+            </div>
+            <div class="input-container">
+                <i class="fa fa-lock icon"></i>
+                <input type="password" id="confirmProfilePassword" name="confirmPassword" placeholder="Confirmar Nueva Contraseña">
+            </div>
+            <button type="submit">Actualizar Perfil</button>
+        </form>
+       
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

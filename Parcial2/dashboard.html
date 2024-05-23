@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dsh.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <button id="profileButton" class="nav-user-btn"></button>
+        </div>
+        <div class="navbar-right">
+            <button id="logoutButton" class="nav-btn logout-btn">Logout</button>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <div class="form-container">
+            <select id="transactionType">
+                <option value="Entrada">Ingreso</option>
+                <option value="Salida">Egreso</option>
+            </select>
+            <input type="number" id="transactionAmount" placeholder="Monto" required>
+            <button id="addTransactionButton" class="btn">Agregar</button>
+        </div>
+        <div class="table-container">
+            <h2>Entradas y Salidas</h2>
+            <table id="transactionsTable">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Cantidad</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Transacciones se cargarán aquí -->
+                </tbody>
+            </table>
+        </div>
+        <div class="chart-container">
+            <h2>Comparativa de Entradas y Salidas</h2>
+            <div id="transactionsChart">
+                <!-- Barras de la gráfica se generarán aquí -->
+            </div>
+        </div>
+    </div>
+    <script src="dash.js"></script>
+</body>
+</html>
