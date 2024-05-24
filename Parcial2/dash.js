@@ -18,6 +18,7 @@ const Dashboard = (function () {
             window.location.href = 'login.html';
         },
         handleAddTransaction() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             const type = document.getElementById('transactionType').value;
             const amount = parseFloat(document.getElementById('transactionAmount').value);
             const date = new Date().toLocaleDateString();
@@ -28,7 +29,10 @@ const Dashboard = (function () {
             }
 
             const transaction = { type, amount, date };
-            Dashboard.methods.saveTransaction(transaction);
+            currentUser.transactions.push(transaction);
+            Dashboard.methods.saveTransaction(currentUser);
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
             Dashboard.methods.loadTransactions();
             Dashboard.methods.renderChart();
         },
@@ -48,7 +52,8 @@ const Dashboard = (function () {
             }
         },
         loadTransactions() {
-            const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const transactions = currentUser.transactions || [];
             const tbody = document.getElementById('transactionsTable').getElementsByTagName('tbody')[0];
             tbody.innerHTML = '';
 
@@ -63,13 +68,21 @@ const Dashboard = (function () {
                 cellDate.textContent = transaction.date;
             });
         },
-        saveTransaction(transaction) {
-            const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
-            transactions.push(transaction);
-            localStorage.setItem('transactions', JSON.stringify(transactions));
+        saveTransaction(user) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const existingUserIndex = users.findIndex(u => u.username === user.username);
+
+            if (existingUserIndex >= 0) {
+                users[existingUserIndex] = user;
+            } else {
+                users.push(user);
+            }
+
+            localStorage.setItem('users', JSON.stringify(users));
         },
         renderChart() {
-            const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const transactions = currentUser.transactions || [];
             const income = transactions.filter(t => t.type === 'Entrada').reduce((sum, t) => sum + t.amount, 0);
             const expense = transactions.filter(t => t.type === 'Salida').reduce((sum, t) => sum + t.amount, 0);
 
