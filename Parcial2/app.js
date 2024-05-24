@@ -58,20 +58,21 @@ const App = (function () {
       const name = document.getElementById("name").value;
       const password = document.getElementById("password").value;
       const confirmPassword = document.getElementById("confirmPassword").value;
+
       if (password !== confirmPassword) {
-        alert("Las contraseñas no coinciden");
-        return;
+          alert("Las contraseñas no coinciden");
+          return;
       }
       if (App.methods.getUser(username)) {
         alert("El usuario ya existe");
         window.location.href = "login.html"; // Redirige a la página de login
         return;
       }
-      const user = { username, name, password: App.methods.hashCode(password) };
-      App.methods.saveUser(user); // Guarda el nuevo usuario en el localStorage
+      const user = { username, name, password: App.methods.hashCode(password),transactions: []  };
+      App.methods.saveUser(user);
       alert("Usuario registrado exitosamente");
-      window.location.href = "login.html"; // Redirige a la página de login
-    },
+      window.location.href = 'login.html';
+  },
     // Gestiona el evento de envío del formulario de perfil
     handleProfileForm(e) {
       e.preventDefault(); 
@@ -172,7 +173,7 @@ const App = (function () {
     }
   };
 
-  // Función de render (placeholder, para futuras actualizaciones si es necesario)
+  // Función de renderizado
   const render = function (res) {
     // Placeholder para funcionalidad de render si se necesita en el futuro
   };
