@@ -43,12 +43,12 @@ const App = (function () {
       const password = document.getElementById("password").value;
       const user = App.methods.getUser(username);
       if (!user) {
-        alert("Usuario no existe, por favor regístrese"); // Muestra un mensaje si el usuario no existe
+        App.methods.showNotification("Usuario no existe, por favor regístrese", "error"); // Muestra un mensaje si el usuario no existe
       } else if (user.password === App.methods.hashCode(password)) {
         localStorage.setItem("currentUser", JSON.stringify(user)); // Guarda el usuario actual en el localStorage
         window.location.href = "dashboard.html"; // Redirige al dashboard
       } else {
-        alert("Contraseña incorrecta"); // Muestra un mensaje si la contraseña es incorrecta
+        App.methods.showNotification("Contraseña incorrecta", "error"); // Muestra un mensaje si la contraseña es incorrecta
       }
     },
     // Gestiona el evento de envío del formulario de registro
@@ -60,18 +60,18 @@ const App = (function () {
       const confirmPassword = document.getElementById("confirmPassword").value;
 
       if (password !== confirmPassword) {
-          alert("Las contraseñas no coinciden");
+          App.methods.showNotification("Las contraseñas no coinciden", "error");
           return;
       }
       if (App.methods.getUser(username)) {
-        alert("El usuario ya existe");
+        App.methods.showNotification("El usuario ya existe", "error");
         window.location.href = "login.html"; // Redirige a la página de login
         return;
       }
       const user = { username, name, password: App.methods.hashCode(password),transactions: []  };
       App.methods.saveUser(user);
-      alert("Usuario registrado exitosamente");
-      window.location.href = 'login.html';
+      App.methods.showNotification("Usuario registrado exitosamente", "success","login.html");
+
   },
     // Gestiona el evento de envío del formulario de perfil
     handleProfileForm(e) {
@@ -84,7 +84,7 @@ const App = (function () {
       ).value;
 
       if (password && password !== confirmPassword) {
-        alert("Las contraseñas no coinciden");
+        App.methods.showNotification("Las contraseñas no coinciden", "error");
         return;
       }
 
@@ -97,9 +97,8 @@ const App = (function () {
       }
 
       App.methods.updateUser(currentUser);
-      alert("Perfil actualizado exitosamente");
+      App.methods.showNotification("Perfil actualizado exitosamente", "success", "dashboard.html");
       App.methods.populateProfileForm(); // Actualiza el formulario de perfil con los nuevos datos
-      window.location.href = "dashboard.html";
     },
     // Gestiona el evento de click del botón de logout
     handleLogout() {
@@ -133,6 +132,7 @@ const App = (function () {
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
     },
+    // Actualiza un usuario en el localStorage
     updateUser(updatedUser) {
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const index = users.findIndex(
@@ -165,11 +165,32 @@ const App = (function () {
         window.location.href = "login.html";
       }
     },
+    // Actualiza el formulario de perfil con los datos del usuario actual
     populateProfileForm() {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser) {
             document.getElementById('profileName').value = currentUser.name;
         }
+    },
+    showNotification(message, type, redirectUrl) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.className = `notification show ${type}`;
+      
+      if (type === "success" && redirectUrl) {
+          const button = document.createElement('button');
+          button.className = 'btn';
+          button.textContent = 'Aceptar';
+          button.addEventListener('click', () => {
+              notification.className = 'notification';
+              window.location.href = redirectUrl;
+          });
+          notification.appendChild(button);
+      } else {
+          setTimeout(() => {
+              notification.className = 'notification';
+          }, 3000);
+      }
     }
   };
 
