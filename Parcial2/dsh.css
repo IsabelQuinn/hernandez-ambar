@@ -166,3 +166,27 @@ th {
 .chart-bar .expense {
     background-color: #F44336;
 }
+
+/* Estilos para notificaciones */
+.notification {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.notification.show {
+    display: block;
+}
+.notification.error {
+    background-color: #fd2e2e;
+}
+
+.notification.success {
+    background-color: #4caf50; 
+}
